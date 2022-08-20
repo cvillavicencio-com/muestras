@@ -8,7 +8,7 @@
     <body>
 
 	<div id="res">
-	    <h2>Resultado</h2>
+	    <h2>[titulo]</h2>
 	    <iframe class="ifr" src="README" name="_ifr"></iframe><br>
 	    <input onclick="cres();" type="button" value="Cerrar">
 	</div>
@@ -32,7 +32,7 @@
 			<option value="3">relieve</option>
 
 		    </select><br><br>
-		    <input formtarget="_ifr" onclick="vr();" onclick="vr();" type="submit" value="Crear imagen">
+		    <input onunload="vr();" onclick="vr();" type="submit" value="Crear imagen">
 		</form>
 		<div class="info">
 		    <pre>&lt;?php

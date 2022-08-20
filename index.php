@@ -3,6 +3,7 @@
     <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="js/script.js" defer></script>
     </head>
 
     <body>
@@ -203,5 +204,5 @@ AND YEAR(fecha) = '2022';
 	    
 
     </body>
-    <script type="text/javascript" src="js/script.js" ></script>
+
 </html>

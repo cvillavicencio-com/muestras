@@ -10,7 +10,7 @@
 
 	<div id="res">
 	    <h2>[titulo]</h2>
-	    <iframe class="ifr" src="README" name="_ifr"></iframe><br>
+	    <iframe class="ifr" src="README" name="ifr"></iframe><br>
 	    <input onclick="cres();" type="button" value="Cerrar">
 	</div>
 
@@ -20,7 +20,7 @@
 	    
 	    <div id="crearImagen" class="oper">
 		<h2>Crear imagen con texto</h2>
-		<form action="funcs/operaciones.php" method="POST" target="_ifr">
+		<form action="funcs/operaciones.php" method="POST" target="ifr">
 		    <input type="hidden" name="func" value="crearImagen">
 		    Palabra que aparecerá en la imagen:<br>
 		    <input maxlength="16" type="text" name="palabra" required><br>

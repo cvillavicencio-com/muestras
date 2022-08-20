@@ -11,7 +11,7 @@
 	<div id="res">
 	    <h2>[titulo]</h2>
 	    <iframe class="ifr" src="README" name="ifr"></iframe><br>
-	    <input onclick="cres();" type="button" value="Cerrar">
+	    <input onclick="cres();" type="button" value="Cerrar"><br><br>
 	</div>
 
 	<div class="container">
@@ -23,7 +23,7 @@
 		<form action="funcs/operaciones.php" method="POST" target="ifr">
 		    <input type="hidden" name="func" value="crearImagen">
 		    Palabra que aparecerá en la imagen:<br>
-		    <input maxlength="16" type="text" name="palabra" required><br>
+		    <input maxlength="16" type="text" name="palabra" value="texto de prueba" required><br>
 
 		    Filtro:
 		    <select name="filtro">
@@ -83,7 +83,7 @@ imagedestroy($im);
 
 	    <div id="crearPwd" class="oper">
 		<h2>Crear password</h2>
-		<form action="funcs/operaciones.php" method="POST" target="_ifr">
+		<form action="funcs/operaciones.php" method="POST" target="ifr">
 		    <input type="hidden"   name="func"   value="crearPwd">
 		    <input type="checkbox" checked disabled>Números<br>
 		    <input type="checkbox" name="chars[]" value="1" /> Mayúsculas<br>
@@ -102,7 +102,7 @@ imagedestroy($im);
 
 	    <div id="escribirBd" class="oper">
 		<h2>Escribir en base de datos</h2>
-		<form action="funcs/operaciones.php" method="POST" target="_ifr">
+		<form action="funcs/operaciones.php" method="POST" target="ifr">
 		    <input type="hidden" name="func" value="escribirBd">
 		    En este momento, el día está 
 		    <select name="tiempo">
@@ -139,7 +139,7 @@ VALUES ('<?php echo date("Y-m-d H:i:s"); ?> ','1','3');
 	    
 	    <div id="consultaBd" class="oper">
 		<h2>Consultar base de datos</h2>
-		<form action="funcs/operaciones.php" method="POST" target="_ifr">
+		<form action="funcs/operaciones.php" method="POST" target="ifr">
 		    <input type="hidden" name="func" value="consultaBd">
 		    Ver registro de días
 		    <select name="tiempo">
@@ -183,7 +183,7 @@ AND YEAR(fecha) = '2022';
 
 	    <div id="graphBd" class="oper">
 		<h2>Gráfico con datos obtenidos de base de datos</h2>
-		<form action="funcs/operaciones.php" method="POST" target="_ifr">
+		<form action="funcs/operaciones.php" method="POST" target="ifr">
 		    <input type="hidden" name="func" value="graphBd">
 		    Seleccionar año a consultar: 
 		    <select name="ano">

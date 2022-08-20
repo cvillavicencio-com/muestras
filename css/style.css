@@ -25,18 +25,19 @@ body{
 .ifr{
     width: 60%;
     height: 400px;
+    min-height: 100%;
     border: solid 1px ivory;
 }
 
 #res{
-    border: solid 2px #ddeeff;
-    background-color: #ccddff;
+    border: solid 2px #3a53a3;
+    background-color: #aaccff;
+    border-radius: 10px;    
     box-shadow: inset 0 12px 12px -12px rgba(0, 0, 50, 0.5);
     position: fixed;
     transform: translate(-50%, -50%);
     width: 50%;
     min-width: 400px;
-
     top: 50%;
     left: 50%;
 }

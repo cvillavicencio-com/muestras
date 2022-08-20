@@ -7,7 +7,6 @@ function cres(){
 
 function vr() {
     rw.style.display = 'block';
-
 }
 
 

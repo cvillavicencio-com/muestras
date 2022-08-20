@@ -9,7 +9,7 @@
 
 	<div id="res">
 	    <h2>Resultado</h2>
-	    <iframe class="ifr" src="about:blank;" name="_ifr"></iframe><br>
+	    <iframe class="ifr" src="README" name="_ifr"></iframe><br>
 	    <input onclick="cres();" type="button" value="Cerrar">
 	</div>
 

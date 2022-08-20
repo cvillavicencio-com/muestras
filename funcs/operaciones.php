@@ -1,5 +1,7 @@
 <?php
 
+require_once('funciones.php');
+
 if (!isset($_POST['func'])){
     echo "acceso no contemplado";
     exit();    
@@ -43,7 +45,7 @@ switch ($func) {
             }
 	}
 
-	$filtro = intval(htmlspecialchars($_POST['filtro']));
+	$filtro = intpost('filtro');
 	switch ($filtro){
 	    case 1:
 		$elFiltro = IMG_FILTER_EDGEDETECT;
@@ -67,7 +69,43 @@ switch ($func) {
 	break;
 
     case "crearPwd":
-	$largo = intval(htmlspecialchars($_POST['largo']));
+
+	foreach ($_POST['chars'] as &$c){
+	    if ($c == 1){ $o[] = 'mayúsculas';}
+	    if ($c == 2){ $o[] = 'minúsculas';}
+	    if ($c == 3){ $o[] = 'símbolos';}
+	}
+
+	echo 'Creación de contraseña<br>A continuación hay dos contraseñas generadas al azar, una generada por un código escrito siguiendo el paradigma de programación orientada a objetos; y, la otra escrita procedimentalmente. Ambas están compuestas de '.poney($o,' además de').' números.<hr>';
+	// orientado a objetos
+	$ini = microtime();
+	class clave{
+	    public function crear($a, $b){
+		$chars = str_split('123456789') ;
+		if (is_array($a)){
+		    foreach ($a as &$c){
+			$chars = ($c==1) ? split2array($chars,'ABCDEFGHJKLMNPQRSTUVWXYZ') : $chars;
+			$chars = ($c==2) ? split2array($chars,'abcdefghijkmnpqrstuvwxyz') : $chars;
+			$chars = ($c==3) ? split2array($chars,'!$%&)=;?!_:@') : $chars;
+		    }
+		}
+		shuffle($chars);
+
+		for ($i = 0; $i <= ($b-1); $i++){
+		    $o = rand(0, (count($chars)-1));
+		    $r .= $chars[$o];
+		}
+		return "$r";
+	    }
+	}
+	$nclave = new Clave();
+	$clavepoo = $nclave->crear($_POST['chars'],intpost('largo'));
+	$fin = microtime();
+	$tpopoo= $fin - $ini;
+
+	//procedimental
+	$ini = microtime();
+	$largo = intpost('largo');
 	$chars= @$_POST['chars'];
 	$keys = str_split("0123456789");
 	if (@count($chars)>=1){
@@ -85,21 +123,63 @@ switch ($func) {
             }
 	}
 
-	echo '<pre>';
+
 	for ($i = 0; $i <= ($largo-1); $i++){
             $o = rand(0, (count($keys)-1));
-            echo $keys[$o];
+            $clavepro .= $keys[$o];
 	}
-	echo '</pre>';
 
-	
-        
+	$fin = microtime();
+	$tpopro= $fin - $ini;
+
+	echo '
+<!DOCTYPE html>
+<style>
+table {
+  width:100%;
+  font-family: arial;
+  font-size: x-small;
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: left;
+}
+</style>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Programación</th>
+      <th>Contraseña</th>
+      <th>Tiempo de cómputo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+<td>Procedimental</td>
+<td>'.$clavepro.'</td>
+<td>'.$tpopro.'</td>
+</tr>
+    <tr>
+<td>Orientada a objetos</td>
+<td>'.$clavepoo.'</td>
+<td>'.$tpopoo.'</td>
+</tr>
+</tbody>
+</table>
+
+';
+
 	break;
 
     case "escribirBd":
 	include('bdconfig.php');
-	$tiempo = intval(htmlspecialchars($_POST['tiempo']));
-	$zona = intval(htmlspecialchars($_POST['zona']));
+	$tiempo = intpost('tiempo');
+	$zona = intpost('zona');
 
 	$bd = mysqli_connect($srv, $usr, $pwd, $dbn);
 	if (mysqli_connect_errno()) {
@@ -126,10 +206,10 @@ switch ($func) {
             die("Connection failed: " . $conn->connect_error);
 	}
 
-	$tiempo = intval(htmlspecialchars($_POST['tiempo']));
-	$zona  = intval(htmlspecialchars($_POST['zona']));
-	$ano = intval(htmlspecialchars($_POST['ano']));
-	$where = array();
+	$tiempo = intpost('tiempo');
+	$zona   = intpost('zona');
+	$ano    = intpost('ano');
+	$where  = array();
 	
 	
 	if ($tiempo <= 2 && $tiempo != 0){
@@ -212,7 +292,7 @@ td, th {
             die("Connection failed: " . $conn->connect_error);
 	}
 
-	$ano = intval(htmlspecialchars($_POST['ano']));
+	$ano = intpost('ano');
 	$sql = "select
 	(select count(*) from Info where tiempoId =1 and zonaId =1 and fecha BETWEEN '$ano-01-01 00:00:00' AND '$ano-12-31 23:59:59') as t1m1,
 	(select count(*) from Info where tiempoId =1 and zonaId =2 and fecha BETWEEN '$ano-01-01 00:00:00' AND '$ano-12-31 23:59:59') as t1m2,

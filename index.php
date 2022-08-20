@@ -32,7 +32,7 @@
 			<option value="3">relieve</option>
 
 		    </select><br><br>
-		    <input onclick="vr();" onclick="vr();" type="submit" value="Crear imagen">
+		    <input formtarget="_ifr" onclick="vr();" onclick="vr();" type="submit" value="Crear imagen">
 		</form>
 		<div class="info">
 		    <pre>&lt;?php

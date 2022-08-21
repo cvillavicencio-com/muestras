@@ -9,9 +9,10 @@
     <body>
 
 	<div id="res">
-	    <h2>[titulo]</h2>
+	    <h2>Portafolio operativo</h2>
 	    <iframe class="ifr" src="README" name="ifr"></iframe><br>
-	    <input onclick="cres();" type="button" value="Cerrar"><br><br>
+	    <input onclick="cres();" type="button" value="Cerrar"> 
+	    <form id="infobtn" style="display:none;" action="README" target="ifr"><input type="submit" value="Info"></form>
 	</div>
 
 	<div class="container">

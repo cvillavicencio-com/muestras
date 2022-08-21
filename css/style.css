@@ -25,7 +25,7 @@ body{
 .ifr{
     width: 60%;
     height: 400px;
-    min-height: 100%;
+    min-height: 70%;
     border: solid 1px ivory;
 }
 
@@ -40,6 +40,7 @@ body{
     min-width: 400px;
     top: 50%;
     left: 50%;
+    height: 95%;
 }
 
 .nota{

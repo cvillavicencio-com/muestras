@@ -7,6 +7,7 @@ function cres(){
 
 function vr() {
     rw.style.display = 'block';
+    document.getElementById("infobtn").style.display = 'block';
 }
 
 

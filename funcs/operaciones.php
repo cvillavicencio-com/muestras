@@ -101,7 +101,8 @@ switch ($func) {
 	$nclave = new Clave();
 	$clavepoo = $nclave->crear($_POST['chars'],intpost('largo'));
 	$fin = microtime();
-	$tpopoo= $fin - $ini;
+	$tpopoo= number_format(($fin - $ini),6).' ms';
+
 
 	//procedimental
 	$ini = microtime();
@@ -130,7 +131,7 @@ switch ($func) {
 	}
 
 	$fin = microtime();
-	$tpopro= $fin - $ini;
+	$tpopro= number_format(($fin - $ini),6).' ms';
 
 	echo '
 <!DOCTYPE html>

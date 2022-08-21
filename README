@@ -1,3 +1,5 @@
-Portafolio operativo de Camilo Villavicencio
+Bienvenido a mi portafolio operativo
 
-En esta página estoy recolectando fragmentos de códigos que he utilizado en distintos contextos, pero de forma separada para una apreciación más en detalle.
+En esta página están disponibles varias secciones con funcionalidades acotadas que he programado para situaciones puntuales, pero reescritas por separado junto con una documentación sobre su funcionamiento, además de curiosidades respecto a su desarrollo. Esta página está escrita principalmente en PHP y algunos elementos en javascript para la presentación de la información.
+
+Esta página está actualmente en construcción y las secciones disponibles podrán no estar completamente documentadas aún, sin embargo, se encuentran totalmente operativas. Puedes consultar el código en https://github.com/cvillavicencio-com/muestras. La estructura de archivos también está en desarrollo permanente.

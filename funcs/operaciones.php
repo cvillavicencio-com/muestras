@@ -261,13 +261,12 @@ td, th {
     <tr>
       <th>Fecha</th>
       <th>Tiempo</th>
-      <th>Macrozona</th>
+      <th>Zona</th>
     </tr>
   </thead>
   <tbody>
 	    ';
             
-            // output data of each row
             while($row = $result->fetch_assoc()) {
 		echo "<tr><td>" . $row["fecha"]. "</td><td>" . $row["tiempo"]. "</td><td>" . $row["zona"]. "</td></tr>";
             }
